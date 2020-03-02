@@ -1,23 +1,25 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { initialZipcodeState, ZipcodeState } from "."
-import { LoadZipCodes, AddZipCode, RemoveZipCode } from '.';
+import { initialZipcodeState, ZipcodeState } from './zipcode.state';
+import * as ZipCodeActions from './zipcode.actions';
 
-export const zipcodeFeatureKey = 'zipcode';
+export const zipcodeFeatureKey = "zipcode";
 
 const _zipcodeReducer = createReducer(
   initialZipcodeState,
   
-  on(LoadZipCodes, state => {
+  on(ZipCodeActions.loadZipCodes, state => {
     console.log('LOAD_ZIPCODES action being handled!');
     return { ...state };
   }),
-  on(AddZipCode, state => {
+  on(ZipCodeActions.addZipCode, (state, {zipcode}) => {
     console.log('ADD_ZIPCODE action being handled!');
-    return { ...state };
+    let newdata = [ ...state.data, zipcode ] ;
+    return { ...state, data: newdata };
   }),
-  on(RemoveZipCode, state => {
+  on(ZipCodeActions.removeZipCode, (state, {zipcode}) => {
     console.log('REMOVE_ZIPCODE action being handled!');
-    return { ...state };
+    let newdata = state.data.filter(code => code !== zipcode);
+    return { ...state, data: newdata };
   })
 );
 

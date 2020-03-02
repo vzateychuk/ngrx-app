@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-zipcode-entry',
-  templateUrl: './zipcode-entry.component.html',
-  styleUrls: ['./zipcode-entry.component.css']
+  templateUrl: './zipcode-entry.component.html'
 })
-export class ZipcodeEntryComponent implements OnInit {
+export class ZipcodeEntryComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Output() zipAdded = new EventEmitter<string>();
 
 }

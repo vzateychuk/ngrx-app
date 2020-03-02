@@ -1,3 +1,5 @@
+import { createSelector } from '@ngrx/store';
+
 export interface ZipcodeState {
     data: ReadonlyArray<String>;
   }
@@ -9,4 +11,3 @@ export const initialZipcodeState: ZipcodeState = {
         "333333"
     ]
 };
-  

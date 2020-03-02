@@ -7,6 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { CoreModule } from './core/core.module';
+import { ZipcodeModule } from './zipcode/zipcode.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     
     CoreModule,
+    ZipcodeModule,
     
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],

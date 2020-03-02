@@ -2,13 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { zipcodeReducer } from '../core/@ngrx';
-import { ZipcodeEntryComponent } from './components/zipcode-entry/zipcode-entry.component';
+import { ZipcodeEntryComponent, ZipcodeListComponent } from '.';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 @NgModule({
-  declarations: [ ZipcodeEntryComponent ],
+  declarations: [ 
+    ZipcodeListComponent,
+    ZipcodeEntryComponent,
+    MainPageComponent
+  ],
   imports: [
     CommonModule,
-    StoreModule.forFeature("zipcodes", zipcodeReducer)
+    StoreModule.forFeature("zipcodeState", zipcodeReducer)
   ]
 })
 export class ZipcodeModule { }
